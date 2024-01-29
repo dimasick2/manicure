@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/form.css">
+    <title>petrovich</title>
+</head>
+<body>
+   
+    <section class="hero">
+      
+        <form action="/auth/login" method="post"  class="ui-form"> 
+       
+
+            <h3>Войти в систему
+                {{!-- <p class="err"></p> --}}
+                
+                 {{!-- {{#if massage}} --}}
+                 <p class="err">{{massage}}</p>
+                {{!-- {{/if}} --}}
+            </h3>
+           
+            <div class="form-row">
+                
+            <input type="text" id="email"  required autocomplete="off"  class="login" name="email"><label for="email">Email</label>
+            </div>
+            <div class="form-row">
+            <input type="password" id="password" required autocomplete="off" class="password" name="password"><label for="password">Пароль</label>
+            </div>
+            <p><button class="button">Войти</button></p>
+           
+          
+            <p>  <a href="/auth/registry" class="authReg">зарегистрироваться</a></p>
+         </form> 
+        
+
+    </section>
+    
+    
+   
+</body>
+</html>

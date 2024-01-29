@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin</title>
+    <link rel="stylesheet" href="/panel.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+        <ul class="nav">
+            <li class="activ_nav_item">добавить ученика</li>
+        </ul>
+        <div class="tho">
+            <span>Админ: {{user}}</span> <br>
+                <a href="/auth/login" class="output">выйти</a>
+
+        </div>
+      
+    </div>
+    
+    <div class="main">
+        <form  class="ui-form"> 
+            <h3>Добавить пользователя</h3>
+            <div class="form-row">
+            <p>ведите почту</p>
+            <input type="text"  equired autocomplete="off"  class="email" name="email" id="email" placeholder="email">
+            </div>
+            
+            <p><input type="submit" value="добавить" class="button"></p>
+            <p class="err"></p>
+        </form>
+
+
+
+    </div> 
+
+
+    <footer class="footer">
+       
+        <span>vi art studio</span>
+    </footer>
+    </div>
+
+    <script src="/js/addUserLes.js"></script>
+
+</body>
+</html>
