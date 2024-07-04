@@ -21,7 +21,7 @@ function login(e){
             const data =await request('/api/adduser', 'POST', userdata)
                 
             if(data){
-                console.log(data.massage)
+                // console.log(data.massage)
                 massageError.innerHTML=data.massage
                 email.value=''
     
@@ -63,3 +63,35 @@ async function request(url, method='GET', data=null ){
 }
 
 
+
+let accessBtn=document.getElementsByClassName('btn');
+// console.log(accessBtn)
+
+for (let item of accessBtn) {
+    
+    item.addEventListener('click',changingAccess )
+}
+
+
+
+async function  changingAccess(e){
+    e.preventDefault()
+    // console.log(e.target.getAttribute('data-id') )
+
+    const userId={
+        idUserAcces:e.target.getAttribute('data-id'),
+        current:e.target.innerHTML
+       
+    }
+
+    const accessUserId =await request('/api/adduser', 'PUT',userId )
+                
+    if(accessUserId){
+        // console.log(data.massage)
+        // massageError.innerHTML=data.massage
+        // email.value=''
+        e.target.innerHTML = accessUserId.massage
+
+        
+    }
+}
