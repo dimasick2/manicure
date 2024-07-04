@@ -8,12 +8,14 @@ module.exports.getusers=async  function(req,res){
     // res.json({'mesage':"доступ получен"})
     let id = new mongoose.mongo.ObjectId(req.params.id);
    
+    const userAll = await Lesson.find({})
    
 
     const candidate = await User.findOne(id)
     if(candidate){
         res.render('adpanel.hbs',{
-            user:candidate.email
+            user:candidate.email,
+            stutends:userAll
         })
         // res.render('adpanel.hbs')
 
@@ -59,5 +61,59 @@ module.exports.setuser=async  function(req,res){
         })
        
     }
+
+}
+
+// статус 
+
+module.exports.changeUserAcces=async  function(req,res){
+
+   
+
+    if(req.body.current=='true'){
+        const user = await Lesson.findOneAndUpdate({_id: req.body.idUserAcces}, {access: 'false'}, {new: true}); 
+
+        if(user){
+            
+            // console.log(user)
+            res.status(200).json({
+                massage:user.access
+            })
+    
+    
+        }else{
+            res.status(200).json({
+             massage: 'err status'
+            })
+
+        }
+
+
+    }else{
+        const user = await Lesson.findOneAndUpdate({_id: req.body.idUserAcces}, {access: 'true'}, {new: true}); 
+        if(user){
+            
+            // console.log(user)
+            res.status(200).json({
+                massage:user.access
+            })
+    
+    
+        }else{
+            res.status(200).json({
+             massage: 'err status'
+            })
+
+        }
+
+
+    }
+
+
+
+   
+
+
+   
 
 }
