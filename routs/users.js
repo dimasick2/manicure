@@ -15,5 +15,6 @@ const userRouter = express.Router();
 userRouter.get("/user/:id", passport.authenticate('jwt', {session:false}), userContoller.getusers)
 
 userRouter.post("/adduser", passport.authenticate('jwt', {session:false}), userContoller.setuser)
+userRouter.put("/adduser", passport.authenticate('jwt', {session:false}), userContoller.changeUserAcces)
 
 module.exports=userRouter
