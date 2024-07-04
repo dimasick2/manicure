@@ -32,7 +32,23 @@
             <p class="err"></p>
         </form>
 
+    <table class="user_table">
+            <tr>
+                <th>email</th>
+                <th>статус</th>
 
+            </tr>  
+          
+
+             
+            {{#each stutends}}
+              <tr></tr>
+                <td>{{this.email}}</td>
+                <td><a href="" data-id="{{this._id}}" class="btn" >{{this.access}}</a></td>
+            </tr>
+
+            {{/each}}
+        </table>
 
     </div> 
 
